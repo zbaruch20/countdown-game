@@ -1,0 +1,5 @@
+This is a random blurb of words.
+All of these words contain at most nine letters and only contain letters.
+
+Some of the words of characters h3re don't satisfy these 2 properties.
+They can be veeeeeeeeeeerrrrrrrryyyyyyyy long or contain $ymb0|s and numb3rs.
