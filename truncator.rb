@@ -1,3 +1,5 @@
+require "colorize"
+
 # Provides methods related to tokenizing an input file, and writing to
 # a new file all words in the input less than a specified length.
 #
@@ -30,8 +32,8 @@ module Truncator
         raise "Violation of: max_len > 0" unless max_len > 0
 
         out = File.new output_file, 'w+'
-        tokens = tokens(input_file, /[^\w\-.']/).map {|w| w.downcase}
-        tokens.each { |w| out.puts w if w.length <= max_len and w.match? /^[a-z]$/ }
+        tokens = tokens(input_file, /[^\w\-'.]/).map { |w| w.downcase }.uniq
+        tokens.each { |w| out.puts w if w.length <= max_len and w.match? /^[a-z]+$/ }
         out.close
     end
 
@@ -43,7 +45,7 @@ module Truncator
     # @param separators [Regexp] regular expression of separators, /\W/ by default
     # @return [Array] the words in [input_file] of non-zero length
     # @requires input_file exists
-    # @ensures stuff
+    # @ensures tokens = [the words in input_file, separated by separators]
     def self.tokens(input_file, separators = /\W/)
         raise "Violation of: input_file is a String" unless input_file.is_a? String
         raise "Violation of: separators is a Regexp" unless separators.is_a? Regexp
