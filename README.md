@@ -10,6 +10,6 @@ $ ruby game.rb
 
 -------------------
 
-For convenience, the file ```words.txt```, containing all words in the English language containing only letters with a length of nine or less (i.e. ```/[a-z]{1,9}/```), is provided. This file is adapted from [this GitHub repository](https://github.com/dwyl/english-words). While I wrote a script to restrict the original file to words of nine or less characters (```truncator.rb```), all credit for the original file belongs to dwyl and all contributors to the aforementioned repository.
+For convenience, the file ```countdown-words.txt```, containing all words in the English language containing only letters with a length of nine or less (i.e. ```/^[a-z]{1,9}$/```), is provided. This file is adapted from [this GitHub repository](https://github.com/dwyl/english-words). While I wrote a script to restrict the original file to words of nine or less characters (```truncator.rb```), all credit for the original file belongs to dwyl and all contributors to the aforementioned repository.
 
 All necessary game components are implemented in the module ```Countdown```, and the word list tokenizer components are implemented in the module ```Truncator```. The file ```letter_stack.rb``` provides an implementation of the ```LetterStack``` class used for the consonant and vowel stacks.
