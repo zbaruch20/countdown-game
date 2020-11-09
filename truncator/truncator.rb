@@ -1,11 +1,10 @@
-require "colorize"
+require 'colorize'
 
 # Provides methods related to tokenizing an input file, and writing to
 # a new file all words in the input less than a specified length.
 #
 # @author Zach Baruch
 module Truncator
-
     # Reads from [input_file], and writes to [output_file] all of the words
     # in [input_file] containing only letters and whose length is less than
     # [max_len]. If [output_file] does not exist, it will be created. Otherwise,
@@ -24,18 +23,18 @@ module Truncator
     #    where (w is in entries(tokens(output_file)))
     #   (|x| <= max_len  and  [w contains only letters])
     #  </pre>
-    def self.truncate(input_file, output_file, max_len)
-        raise "Violation of: input_file is a String" unless input_file.is_a? String
-        raise "Violation of: output_file is a String" unless output_file.is_a? String
-        raise "Violation of: max_len is an Integer" unless max_len.is_a? Integer
-        raise "Violation of: #{input_file} exists" unless File.exist? input_file
-        raise "Violation of: max_len > 0" unless max_len > 0
+  def self.truncate(input_file, output_file, max_len)
+      raise 'Violation of: input_file is a String' unless input_file.is_a? String
+      raise 'Violation of: output_file is a String' unless output_file.is_a? String
+      raise 'Violation of: max_len is an Integer' unless max_len.is_a? Integer
+      raise "Violation of: #{input_file} exists" unless File.exist? input_file
+      raise 'Violation of: max_len > 0' unless max_len > 0
 
-        out = File.new output_file, 'w+'
-        tokens = tokens(input_file, /[^\w\-'.]/).map { |w| w.downcase }.uniq
-        tokens.each { |w| out.puts w if w.length <= max_len and w.match? /^[a-z]+$/ }
-        out.close
-    end
+      out = File.new output_file, 'w+'
+      tokens = tokens(input_file, /[^\w\-'.]/).map { |w| w.downcase }.uniq
+      tokens.each { |w| out.puts w if (w.length <= max_len) && w.match?(/^[a-z]+$/)) }
+      out.close
+  end
 
     # Tokenizes the file whose name is [input_file], and returns an array
     # containing all the words in the file (not including empty strings),
@@ -46,12 +45,11 @@ module Truncator
     # @return [Array] the words in [input_file] of non-zero length
     # @requires input_file exists
     # @ensures tokens = [the words in input_file, separated by separators]
-    def self.tokens(input_file, separators = /\W/)
-        raise "Violation of: input_file is a String" unless input_file.is_a? String
-        raise "Violation of: separators is a Regexp" unless separators.is_a? Regexp
-        raise "Violation of: #{input_file} exists" unless File.exist? input_file
+  def self.tokens(input_file, separators = /\W/)
+      raise 'Violation of: input_file is a String' unless input_file.is_a? String
+      raise 'Violation of: separators is a Regexp' unless separators.is_a? Regexp
+      raise "Violation of: #{input_file} exists" unless File.exist? input_file
 
-        File.read(input_file).split(separators).select {|s| s.length > 0}
-    end
-
+      File.read(input_file).split(separators).select { |s| s.length > 0 }
+  end
 end
