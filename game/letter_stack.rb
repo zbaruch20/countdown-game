@@ -7,7 +7,8 @@ require_relative 'frequencies'
 #
 # @author Zach Baruch
 module Letters
-    class LetterStack < Enumerable
+    class LetterStack
+        include Enumerable
 
         # Constructor.
         #

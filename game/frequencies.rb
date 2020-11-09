@@ -37,7 +37,7 @@ module Letters
         'E' => 12,
         'I' => 9,
         'O' => 8,
-        'U' = > 4
+        'U' => 4
     }
 
 end
