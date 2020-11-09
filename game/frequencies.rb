@@ -7,7 +7,7 @@
 module Letters
 
     # Hash<String, Integer> of consonant frequencies in the LetterStack
-    @@Consonant_frequencies = {
+    Consonant_frequencies = {
         'B' => 2,
         'C' => 2,
         'D' => 4,
@@ -32,7 +32,7 @@ module Letters
     }
 
     # Hash<String, Integer> of vowel frequencies in the LetterStack
-    @@Vowel_frequencies = {
+    Vowel_frequencies = {
         'A' => 9,
         'E' => 12,
         'I' => 9,

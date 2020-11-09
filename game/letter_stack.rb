@@ -22,7 +22,7 @@ module Letters
 
             # The frequencies for this LetterStack are based on type
             # Doing it this way prevents redundant code
-            frequencies = (@@Vowel_frequencies if type == :vowels) || @@Consonant_frequencies
+            frequencies = (Letters::Vowel_frequencies if type == :vowels) || Letters::Consonant_frequencies
 
             # For each letter (key), add it to @rep value times (the frequency)
             frequencies.each_key do |x|
@@ -33,8 +33,8 @@ module Letters
         end
 
         # Implementation of `Enumerable#each`
-        def each()
-            @rep.each
+        def each(&block)
+            (@rep.each &block if block_given?) or @rep.each
         end
 
         # Reports the length of `self`.
@@ -54,6 +54,13 @@ module Letters
         # Shuffle elements in `self` in place.
         def shuffle!()
             @rep.shuffle!
+        end
+
+        # Returns the array representation of `self`.
+        #
+        # @return [Array<String>] `self` represented as an array
+        def to_a()
+            @rep
         end
 
     end
