@@ -97,6 +97,7 @@ module Letters
     # LetterStack of vowels and vise versa, i.e. it must be done by calling `#new`
     def reset
       create_new_rep @type
+      
     end
   end
 end
