@@ -45,21 +45,17 @@ module Letters
     end
 
     # Implementation of `Enumerable#each`.
-    #
-    # @param &block [Block] block to execute for each element in the enumeration
     def each(&block)
       (@rep.each(&block) if block_given?) or @rep.each
     end
 
     # Reports the length of `self`.
-    #
     # @return [Integer] the number of letters in `self`
     def length
       @rep.length
     end
 
     # Removes the first letter from `self` and returns it.
-    #
     # @return [String] the first letter from `self`
     def draw
       @rep.pop
@@ -71,14 +67,12 @@ module Letters
     end
 
     # Returns the array representation of `self`.
-    #
     # @return [Array<String>] `self` represented as an array of strings
     def to_a
       @rep
     end
 
     # Returns the string representation of `self`.
-    #
     # @return [String] `self` represented as a string
     def to_s
       @rep.to_s
@@ -86,7 +80,6 @@ module Letters
 
     # Equality - Two `LetterStack`s are equal if they contain the same number
     # of letters and if they contain the exact same letters.
-    #
     # @return [Boolean] true if `self` and `other` are equal, false otherwise
     def ==(other)
       return false if other.nil?

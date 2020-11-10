@@ -25,6 +25,7 @@ GEM
     test-unit (3.2.9)
       power_assert
     unicode-display_width (1.7.0)
+    yard (0.9.25)
 
 PLATFORMS
   ruby
@@ -33,6 +34,7 @@ DEPENDENCIES
   colorize
   rubocop
   test-unit
+  yard
 
 BUNDLED WITH
    1.17.2

@@ -5,6 +5,8 @@ module Letters
   # This class represents a set of letter tiles to be used as the "letters in play" in the Countdown
   # game. All of the drawn letters should be added to a TileSet, and it can be used to check if
   # the player's guess contains only the letters in play.
+  #
+  # @author Zach Baruch
   class TileSet
     include Enumerable
 
@@ -21,8 +23,6 @@ module Letters
     end
 
     # Implementation of `Enumerable#each`.
-    #
-    # @param &block [Block] block to execute for each element in the enumeration
     def each(&block)
       (@rep.each(&block) if block_given?) or @rep.each
     end
@@ -30,7 +30,7 @@ module Letters
     # Adds `letter` to `self`. `letter` must be a string containing a single letter
     # character, i.e. `letter =~ /^[A-Za-z]{1}$/` must be true.
     #
-    # @param self [String] the letter to add to this.
+    # @param letter [String] the letter to add to this.
     # @raise [ArgumentError] if `letter` is not a single letter character
     def add(letter)
       unless letter.is_a?(String) && letter =~ (/^[A-Za-z]{1}$/)
@@ -75,7 +75,7 @@ module Letters
       @rep.length
     end
 
-    # Returns the array representation of `self`
+    # Returns the array representation of `self`.
     #
     # @return [Array<String>] `self` represented as an array of strings
     def to_a
