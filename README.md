@@ -5,11 +5,11 @@ This game, implemented in Ruby, is an adaptation of the letters game from the Br
 You can see an example of the game in action [here](https://youtu.be/JPNJHoOtBrg?t=191). To run the game, simply download all the files into a directory, and enter the following command in a console window inside the game's main directory:
 
 ```
-$ bundle exec ruby game/countdown.rb
+$ bundle exec ruby countdown.rb
 ```
 
 -------------------
 
 For convenience, the file ```words.txt```, containing all words in the English language containing only letters with a length of nine or less (i.e. ```/^[a-z]{1,9}$/```), is provided. This file is adapted from [this GitHub repository](https://github.com/dwyl/english-words). While I wrote a script to restrict the original file (`raw-words.txt`) to words of nine or less characters (```truncator.rb```), all credit for the original file belongs to dwyl and all contributors to the aforementioned repository.
 
-All necessary game components are implemented in the module ```Countdown```, and the word list tokenizer components are implemented in the module ```Truncator```. The module  ```Letters``` provides an implementation of the ```LetterStack``` class used for the consonant and vowel stacks.
+The main game is implemented in the module ```Countdown```, and the word list tokenizer components are implemented in the module ```Truncator```. The module  ```Letters``` provides an implementation of the ```LetterStack``` and `TileSet` classes used for the consonant and vowel stacks and the letters in play, respectively.
