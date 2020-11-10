@@ -12,6 +12,8 @@ module Letters
   class LetterStack
     include Enumerable
 
+    private
+
     # Creator of initial representation.
     #
     # @param type [Symbol] the type of LetterStack to be created, `:vowels` or `:consonants`
@@ -30,7 +32,6 @@ module Letters
 
       @rep.shuffle! # Mix up the tiles
     end
-    private :create_new_rep
 
     # Constructor.
     #
@@ -91,6 +92,7 @@ module Letters
 
       @rep.sort == other.to_a.sort
     end
+    alias eql? ==
 
     # Resets `self` to an initial state, using the type that it was constructed from.
     # This means that you cannot implicitly convert a LetterStack of consonants to a
