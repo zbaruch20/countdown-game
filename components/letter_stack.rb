@@ -36,15 +36,17 @@ module Letters
     # Constructor.
     #
     # @param type [Symbol] the type of LetterStack to be created, `:vowels` or `:consonants`.
-    #   By default, this will be `:vowels`. If this is not one of the valid values, an
-    #   `ArgumentError` will be raised.
+    #   By default, this will be `:vowels`.
+    # @raise [ArgumentError] if `type` is not a valid type
     def initialize(type = :vowels)
       raise ArgumentError, 'Violation of: type is invalid' unless (type == :vowels) || (type == :consonants)
 
       create_new_rep type
     end
 
-    # Implementation of `Enumerable#each`
+    # Implementation of `Enumerable#each`.
+    #
+    # @param &block [Block] block to execute for each element in the enumeration
     def each(&block)
       (@rep.each(&block) if block_given?) or @rep.each
     end
@@ -70,7 +72,7 @@ module Letters
 
     # Returns the array representation of `self`.
     #
-    # @return [Array<String>] `self` represented as an array
+    # @return [Array<String>] `self` represented as an array of strings
     def to_a
       @rep
     end
@@ -85,7 +87,7 @@ module Letters
     # Equality - Two `LetterStack`s are equal if they contain the same number
     # of letters and if they contain the exact same letters.
     #
-    # @return [Boolean] true if `self` and `other_letter_stack` are equal, false otherwise
+    # @return [Boolean] true if `self` and `other` are equal, false otherwise
     def ==(other)
       return false if other.nil?
       return false unless other.is_a? LetterStack
