@@ -10,13 +10,6 @@ module Letters
   class TileSet
     include Enumerable
 
-    private
-
-    # Creator of initial representation.
-    def create_new_rep
-      @rep = []
-    end
-
     # Constructor. `self` will be empty.
     def initialize
       create_new_rep
@@ -104,5 +97,13 @@ module Letters
       @rep.sort == other.to_a.sort
     end
     alias eql? ==
+
+    # Private methods
+    private
+
+    # Creator of initial representation.
+    def create_new_rep
+      @rep = []
+    end
   end
 end

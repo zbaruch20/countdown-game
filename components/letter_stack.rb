@@ -12,27 +12,6 @@ module Letters
   class LetterStack
     include Enumerable
 
-    private
-
-    # Creator of initial representation.
-    #
-    # @param type [Symbol] the type of LetterStack to be created, `:vowels` or `:consonants`
-    def create_new_rep(type)
-      @rep = [] # self is represnted as an Array<String>
-      @type = type # only used to reset
-
-      # The frequencies for this LetterStack are based on type
-      # Doing it this way prevents redundant code
-      frequencies = (Letters::Vowel_frequencies if type == :vowels) || Letters::Consonant_frequencies
-
-      # For each letter (key), add it to @rep value times (the frequency)
-      frequencies.each_key do |x|
-        frequencies[x].times { |_i| @rep << x }
-      end
-
-      @rep.shuffle! # Mix up the tiles
-    end
-
     # Constructor.
     #
     # @param type [Symbol] the type of LetterStack to be created, `:vowels` or `:consonants`.
@@ -94,6 +73,28 @@ module Letters
     # LetterStack of vowels and vise versa, i.e. it must be done by calling `#new`
     def reset
       create_new_rep @type
+    end
+
+    # Private methods
+    private
+
+    # Creator of initial representation.
+    #
+    # @param type [Symbol] the type of LetterStack to be created, `:vowels` or `:consonants`
+    def create_new_rep(type)
+      @rep = [] # self is represnted as an Array<String>
+      @type = type # only used to reset
+
+      # The frequencies for this LetterStack are based on type
+      # Doing it this way prevents redundant code
+      frequencies = (Letters::Vowel_frequencies if type == :vowels) || Letters::Consonant_frequencies
+
+      # For each letter (key), add it to @rep value times (the frequency)
+      frequencies.each_key do |x|
+        frequencies[x].times { |_i| @rep << x }
+      end
+
+      @rep.shuffle! # Mix up the tiles
     end
   end
 end
