@@ -2,13 +2,13 @@
 
 # Contains the frequencies for consonants and vowels used for the LetterStack implementation.
 # These may be updated if one desires to change letter frequencies. The frequencies of the
-# consonants and vowels are based off the letter frequencies from the English edition of Scrabble,
-# obtained from https://scrabble.hasbro.com/en-us/faq.
+# consonants and vowels are based off the {https://scrabble.hasbro.com/en-us/faq letter frequencies
+# from the English edition of Scrabble}.
 #
 # @author Zach Baruch
 module Letters
-  # Hash<String, Integer> of consonant frequencies in the LetterStack
-  Consonant_frequencies = {
+  # +Hash<String, Integer>+ of consonant frequencies in the +LetterStack+
+  CONSONANT_FREQUENCIES = {
     'B' => 2,
     'C' => 2,
     'D' => 4,
@@ -32,8 +32,8 @@ module Letters
     'Z' => 1
   }.freeze
 
-  # Hash<String, Integer> of vowel frequencies in the LetterStack
-  Vowel_frequencies = {
+  # +Hash<String, Integer>+ of vowel frequencies in the +LetterStack+
+  VOWEL_FREQUENCIES = {
     'A' => 9,
     'E' => 12,
     'I' => 9,

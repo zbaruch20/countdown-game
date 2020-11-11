@@ -15,16 +15,17 @@ module Letters
       create_new_rep
     end
 
-    # Implementation of `Enumerable#each`.
+    # Implementation of {https://ruby-doc.org/core-2.6.6/Enumerable.html#method-i-each_entry +Enumerable#each+}.
+    # @see https://ruby-doc.org/core-2.6.6/Enumerable.html#method-i-each_entry Enumerable#each
     def each(&block)
       (@rep.each(&block) if block_given?) or @rep.each
     end
 
-    # Adds `letter` to `self`. `letter` must be a string containing a single letter
-    # character, i.e. `letter =~ /^[A-Za-z]{1}$/` must be true.
+    # Adds +letter+ to +self+. +letter+ must be a string containing a single letter
+    # character, i.e. +letter =~ /^[A-Za-z]{1}$/+ must be true.
     #
     # @param letter [String] the letter to add to this.
-    # @raise [ArgumentError] if `letter` is not a single letter character
+    # @raise [ArgumentError] if +letter+ is not a single letter character
     def add(letter)
       unless letter.is_a?(String) && letter =~ (/^[A-Za-z]{1}$/)
         raise ArgumentError, 'Violation of: letter is a single letter character'
@@ -34,12 +35,12 @@ module Letters
     end
     alias << add
 
-    # Checks if `word` only contains the letters in `self`. Note that `word` must
-    # be non-empty and contain only letters, i.e. `word =~ /^[A-Za-z]+$/` must be true.
+    # Checks if +word+ only contains the letters in +self+. Note that +word+ must
+    # be non-empty and contain only letters, i.e. +word =~ /^[A-Za-z]\+$/+ must be true.
     #
-    # @param word [String] the word to check for inclusion in `self`
-    # @return [Boolean] true if `word` only contains the letters in `self`, false otherwise
-    # @raise [ArgumentError] if `word` is empty or contains non-letters
+    # @param word [String] the word to check for inclusion in +self+
+    # @return [Boolean] true if +word+ only contains the letters in +self+, false otherwise
+    # @raise [ArgumentError] if +word+ is empty or contains non-letters
     def include?(word)
       unless word.is_a?(String) && word =~ (/^[A-Za-z]+$/)
         raise ArgumentError, 'Violation of: word is non-empty and contains only letters'
@@ -62,36 +63,36 @@ module Letters
       true # If we made it here then self contains word
     end
 
-    # Reports the length of `self`.
+    # Reports the length of +self+.
     #
-    # @return [Integer] the number of elements in `self`
+    # @return [Integer] the number of elements in +self+
     def length
       @rep.length
     end
 
-    # Returns the array representation of `self`.
+    # Returns the array representation of +self+.
     #
-    # @return [Array<String>] `self` represented as an array of strings
+    # @return [Array<String>] +self+ represented as an array of strings
     def to_a
       @rep
     end
 
-    # Returns the string representation of `self`
+    # Returns the string representation of +self+
     #
-    # @return [String] `self` represented as a string
+    # @return [String] +self+ represented as a string
     def to_s
       "{#{@rep.join ', '}}"
     end
 
-    # Resets `self` to an initial state.
+    # Resets +self+ to an initial state.
     def clear
       create_new_rep
     end
 
-    # Equality - Two `TileSet`s are equal if they contain the same number
+    # Equality - Two +TileSet+s are equal if they contain the same number
     # of letters and if they contain the exact same letters.
     #
-    # @return [Boolean] true if `self` and `other` are equal, false otherwise
+    # @return [Boolean] true if +self+ and +other+ are equal, false otherwise
     def ==(other)
       return false if other.nil? || !other.is_a?(TileSet)
 

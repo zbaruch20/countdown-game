@@ -5,14 +5,14 @@
 #
 # @author Zach Baruch
 module Truncator
-  # Reads from `input_file`, and writes to `output_file` all of the words
-  # in `input_file` containing only letters and whose length is less than
-  # `max_len`. If `output_file` does not exist, it will be created. Otherwise,
+  # Reads from +input_file+, and writes to +output_file+ all of the words
+  # in +input_file+ containing only letters and whose length is less than
+  # +max_len+. If +output_file+ does not exist, it will be created. Otherwise,
   # it will be overwritten.
   #
   # @param input_file [String] the name of the file to read words from
   # @param output_file [String] the name of the file to write the truncated words to
-  # @param max_len [Integer] the maximum length of the words to be written to [output_file]
+  # @param max_len [Integer] the maximum length of the words to be written to +output_file+
   def self.truncate(input_file, output_file, max_len)
     raise 'Violation of: input_file is a String' unless input_file.is_a? String
     raise 'Violation of: output_file is a String' unless output_file.is_a? String
@@ -26,13 +26,13 @@ module Truncator
     out.close
   end
 
-  # Tokenizes the file whose name is `input_file`, and returns an array
+  # Tokenizes the file whose name is +input_file+, and returns an array
   # containing all the words in the file (not including empty strings),
-  # separated by `separators`, in the order the words appeared in the file.
+  # separated by +separators+, in the order the words appeared in the file.
   #
   # @param input_file [String] the name of the file to tokenize
-  # @param separators [Regexp] regular expression of separators, /\W/ by default
-  # @return [Array] the words in [input_file] of non-zero length
+  # @param separators [Regexp] regular expression of separators, +/\W/+ by default
+  # @return [Array] the words in +input_file+ of non-zero length
   def self.tokens(input_file, separators = /\W/)
     raise 'Violation of: input_file is a String' unless input_file.is_a? String
     raise 'Violation of: separators is a Regexp' unless separators.is_a? Regexp
