@@ -10,7 +10,7 @@ module Letters
   class TileSet
     include Enumerable
 
-    # Constructor. `self` will be empty.
+    # Constructor. +self+ will be empty.
     def initialize
       create_new_rep
     end
@@ -32,6 +32,7 @@ module Letters
 
       @rep << letter.upcase
     end
+    alias << add
 
     # Checks if `word` only contains the letters in `self`. Note that `word` must
     # be non-empty and contain only letters, i.e. `word =~ /^[A-Za-z]+$/` must be true.
@@ -39,7 +40,7 @@ module Letters
     # @param word [String] the word to check for inclusion in `self`
     # @return [Boolean] true if `word` only contains the letters in `self`, false otherwise
     # @raise [ArgumentError] if `word` is empty or contains non-letters
-    def contains?(word)
+    def include?(word)
       unless word.is_a?(String) && word =~ (/^[A-Za-z]+$/)
         raise ArgumentError, 'Violation of: word is non-empty and contains only letters'
       end
@@ -48,7 +49,7 @@ module Letters
       # self does not contain word
       return false if word.upcase!.length > @rep.length
 
-      available_letters = @rep
+      available_letters = @rep.map { |c| c } # Array copy
 
       word.each_char do |c|
         # If c is not one of the available letters, then self does not contain word
