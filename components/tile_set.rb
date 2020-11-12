@@ -81,7 +81,7 @@ module Letters
     #
     # @return [String] +self+ represented as a string
     def to_s
-      "{#{@rep.join ', '}}"
+      "{#{@rep.map{ |c| "\"#{c}\"" }.join ', '}}"
     end
 
     # Resets +self+ to an initial state.
