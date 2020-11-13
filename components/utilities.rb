@@ -53,10 +53,10 @@ module Countdown
     end
   end
 
-  # Displays +ts+ to the console using fancy backgrounds to simulate the tiles
+  # Displays +tile_set+ to the console using fancy backgrounds to simulate the tiles
   # on the actual show.
   #
-  # @param ts [TileSet] the +TileSet+ to display
+  # @param tile_set [TileSet] the +TileSet+ to display
   def self.display_tile_set(tile_set)
     letters = tile_set.to_a
     letters[8] ||= nil # "Extend" length to 9
@@ -68,7 +68,7 @@ module Countdown
   # one of +valid_vals+ (ignoring case). The input value is then returned.
   #
   # @param msg [String] the message to prompt to the user
-  # @param *valid_vals [String] one or more valid values that can be returned
+  # @param valid_vals [String] one or more valid values that can be returned
   # @return [String] the user's input value
   # @raise [ArgumentError] if +valid_vals+ is empty or contains any nil values
   def self.prompt_user(msg, *valid_vals)

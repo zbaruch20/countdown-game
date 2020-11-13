@@ -5,16 +5,17 @@ This game, implemented in Ruby, is an adaptation of the letters game from the Br
 You can see an example of the game in action [here](https://youtu.be/JPNJHoOtBrg?t=191). First, you want to make sure you have Ruby and some necessary sdl2 packages installed. You might also need to install an audio player such as qmmp. On Ubuntu or Debian, you can do this by executing the following command:
 
 ```
-$ sudo apt-get install ruby-full # For Ruby
-$ sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev # SDL2 packages
-$ sudo apt-get install qmmp # qmmp audio player
+    $ sudo apt-get install ruby-full # For Ruby
+    $ sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev # SDL2 packages
+    $ sudo apt-get install qmmp # qmmp audio player
 ```
 
 To run the game, first simply download all the files into a directory, and enter the following command in a console window inside the game's main directory:
 
 ```
-$ bundle exec ruby countdown.rb
+    $ bundle exec ruby countdown.rb
 ```
+
 -------------------
 
 For convenience, the file ```words.txt```, containing all words in the English language containing only letters with a length of nine or less (i.e. ```/^[a-z]{1,9}$/```), is provided in the `assets` folder. This file is adapted from [this GitHub repository](https://github.com/dwyl/english-words). While I wrote a script to restrict the original file (`assets/raw-words.txt`) to words of nine or less characters (```truncator.rb```), all credit for the original file belongs to dwyl and all contributors to the aforementioned repository.
