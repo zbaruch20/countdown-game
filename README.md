@@ -17,6 +17,6 @@ $ bundle exec ruby countdown.rb
 ```
 -------------------
 
-For convenience, the file ```words.txt```, containing all words in the English language containing only letters with a length of nine or less (i.e. ```/^[a-z]{1,9}$/```), is provided. This file is adapted from [this GitHub repository](https://github.com/dwyl/english-words). While I wrote a script to restrict the original file (`raw-words.txt`) to words of nine or less characters (```truncator.rb```), all credit for the original file belongs to dwyl and all contributors to the aforementioned repository.
+For convenience, the file ```words.txt```, containing all words in the English language containing only letters with a length of nine or less (i.e. ```/^[a-z]{1,9}$/```), is provided in the `assets` folder. This file is adapted from [this GitHub repository](https://github.com/dwyl/english-words). While I wrote a script to restrict the original file (`assets/raw-words.txt`) to words of nine or less characters (```truncator.rb```), all credit for the original file belongs to dwyl and all contributors to the aforementioned repository.
 
 The main game is implemented in the module ```Countdown```, and the word list tokenizer components are implemented in the module ```Truncator```. The module  ```Letters``` provides an implementation of the ```LetterStack``` and `TileSet` classes used for the consonant and vowel stacks and the letters in play, respectively.
