@@ -2,10 +2,12 @@
 
 This game, implemented in Ruby, is an adaptation of the letters game from the British game show "Countdown". In this game, the player selects nine consonants and vowels at random from corresponding stacks of letters (one for consonants, one for vowels). The player then has 30 seconds to come up with the longest word they can using the letters they selected. If their chosen word is correct, i.e. is a subset of the multiset of the available letters and is an element of a list of valid words, provided by the user. This list of valid words to be used is loaded from a separate file when the game begins execution.
 
-You can see an example of the game in action [here](https://youtu.be/JPNJHoOtBrg?t=191). First, you want to make sure you have Ruby and some necessary sdl2 packages installed. On Ubuntu or Debian, you can do this by executing the following command:
+You can see an example of the game in action [here](https://youtu.be/JPNJHoOtBrg?t=191). First, you want to make sure you have Ruby and some necessary sdl2 packages installed. You might also need to install an audio player such as qmmp. On Ubuntu or Debian, you can do this by executing the following command:
 
 ```
-$ sudo apt-get install ruby-full libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+$ sudo apt-get install ruby-full # For Ruby
+$ sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev # SDL2 packages
+$ sudo apt-get install qmmp # qmmp audio player
 ```
 
 To run the game, first simply download all the files into a directory, and enter the following command in a console window inside the game's main directory:
