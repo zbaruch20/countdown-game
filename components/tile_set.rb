@@ -48,7 +48,7 @@ module Letters
 
       # Simple case here, if the word's length is longer than the length of self, then
       # self does not contain word
-      return false if word.upcase!.length > @rep.length
+      return false if (word.upcase! || word).length > @rep.length
 
       available_letters = @rep.map { |c| c } # Array copy
 

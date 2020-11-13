@@ -38,6 +38,6 @@ module Truncator
     raise 'Violation of: separators is a Regexp' unless separators.is_a? Regexp
     raise "Violation of: #{input_file} exists" unless File.exist? input_file
 
-    File.read(input_file).split(separators).select { |s| s.length.positive? }
+    File.read(input_file).split(separators).select { |s| !s.nil? && s.length.positive? }
   end
 end

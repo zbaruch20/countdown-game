@@ -1,3 +1,4 @@
-test/
+test
 .yardoc
-doc/
+doc
+.vscode
