@@ -13,6 +13,8 @@ module Letters
   class LetterStack
     include Enumerable
 
+    attr_reader :num_drawn
+
     # Constructor.
     #
     # @param type [Symbol] the type of LetterStack to be created, +:vowels+ or +:consonants+.
@@ -41,6 +43,7 @@ module Letters
     #
     # @return [String] the first letter from +self+
     def draw
+      @num_drawn += 1
       @rep.pop
     end
 
@@ -53,7 +56,7 @@ module Letters
     #
     # @return [Array<String>] +self+ represented as an array of strings
     def to_a
-      @rep
+      @rep.map { |l| l }
     end
 
     # Returns the string representation of +self+.
@@ -102,6 +105,7 @@ module Letters
       end
 
       @rep.shuffle! # Mix up the tiles
+      @num_drawn = 0 # Set the number of tiles drawn to 0
     end
   end
 end

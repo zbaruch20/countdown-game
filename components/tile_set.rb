@@ -74,7 +74,7 @@ module Letters
     #
     # @return [Array<String>] +self+ represented as an array of strings
     def to_a
-      @rep
+      @rep.map { |l| l }
     end
 
     # Returns the string representation of +self+
