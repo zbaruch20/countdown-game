@@ -6,6 +6,23 @@ module Letters
   # game. All of the drawn letters should be added to a TileSet, and it can be used to check if
   # the player's guess contains only the letters in play.
   #
+  # @example Using a +TileSet+
+  #   # Building a TileSet from a string literal
+  #   ts = Letters::TileSet.new
+  #   'ohlel'.each_char { |c| ts << c }
+  #   ts #=> {"O", "H", "L", "E", "L"}
+  #
+  #   ts.length #=> 5
+  #   ts.include? 'hello' #=> true
+  #   ts.include? 'help' #=> true
+  #
+  #   ts.add 'p'
+  #   ts.length #=> 6
+  #   ts.include? 'help' #=> true
+  #
+  #   ts.clear
+  #   ts #=> {}
+  #
   # @author Zach Baruch
   class TileSet
     include Enumerable

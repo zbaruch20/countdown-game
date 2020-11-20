@@ -7,7 +7,7 @@ module Letters
   # This class represents a stack of letter tiles to be used as the "drawing piles" in the Countdown
   # game. The user can choose whether the LetterStack contains consonants or vowels when initializing
   # it. The frequencies for consonants and vowels can be found in {Letters +frequencies.rb+}.
-  #
+  #   
   # @author Zach Baruch
   # @see Letters
   class LetterStack
