@@ -14,7 +14,7 @@ module Letters
   #
   #   ts.length #=> 5
   #   ts.include? 'hello' #=> true
-  #   ts.include? 'help' #=> true
+  #   ts.include? 'help' #=> false
   #
   #   ts.add 'p'
   #   ts.length #=> 6
